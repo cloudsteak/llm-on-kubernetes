@@ -9,3 +9,17 @@ NOTES:
   export CONTAINER_PORT=$(kubectl get pod --namespace ollama $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
   echo "Visit http://127.0.0.1:8080 to use your application"
   kubectl --namespace ollama port-forward $POD_NAME 8080:$CONTAINER_PORT
+
+
+
+
+```yaml
+models:
+  pull:
+    - mistral
+```
+
+Possible capacity issues:
+```bash
+{"error":"model requires more system memory (5.5 GiB) than is available (2.1 GiB)"}
+```
